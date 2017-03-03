@@ -1,20 +1,13 @@
 Rails.application.routes.draw do
+  resources :comments
+  get '/login', to: 'sessions#new'
+  post '/login', to: 'sessions#create'
+  delete '/logout', to: 'sessions#destroy'
 
-  get 'things/yours', to: "things#yourthings"
+  root 'posts#index'
+  get '/register', to: 'users#new'
+  post '/register', to: 'users#create'
 
-  resources :things do
-    resources :images, :only => [:create, :destroy]
-  end
-  root "statics#index"
-  devise_for :users
-  get 'aught', to: "aught#index"
-  get 'statics', to: "statics#index"
-  get 'user/index', to: 'user#index'
-  get 'user/:id', to: 'user#show', as: "user"
-  get 'tag/index', to: 'tag#index'
-  get 'tag/tag:id', to: 'tag#show', as: "tag"
-
-  resources :conversations, only: [:index, :create] do
-    resources :messages, only: [:index, :create]
-  end
+  resources :posts
+  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

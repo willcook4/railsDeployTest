@@ -1,24 +1,35 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Aught</title>
+    <title>Medium</title>
     <%= csrf_meta_tags %>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet" />
+
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <link href="https://fonts.googleapis.com/css?family=Hammersmith+One|Oxygen:400,700" rel="stylesheet">
-    
-
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
-
   </head>
-  <header>
-    <%= render :partial => 'layouts/header' %>
-  </header>
-  <p class="notice"><%= notice %></p>
-  <p class="alert"><%= alert %></p>
 
   <body>
-    <%= yield %>
+    <header>
+      <nav>
+        <ul>
+          <li><%= link_to "Home", root_path %></li>
+          <% if logged_in? %>
+            <li>Hello, <%= current_user.email %></li>
+            <li><%= link_to 'Logout', logout_path, method: :delete, data: {confirm: 'Are you sure?'} %></li>
+          <% else %>
+            <li><%= link_to "Register", register_path %></li>
+            <li><%= link_to "Login", login_path %></li>
+          <% end %>
+        </ul>
+      </nav>
+    </header>
+    <% flash.each do |name, message| %>
+      <div class="flash-message flash-message-<%= name %>">
+        <%= message %>
+      </div>
+    <% end %>
+    <main>
+      <%= yield %>
+    </main>
   </body>
 </html>
