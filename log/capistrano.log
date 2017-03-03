@@ -1,0 +1,26 @@
+# Logfile created on 2017-03-03 11:09:39 +0000 by logger.rb/54362
+  INFO ---------------------------------------------------------------------------
+  INFO START 2017-03-03 11:09:39 +0000 cap production deploy
+  INFO ---------------------------------------------------------------------------
+ DEBUG [03ea06b4] Running [ -d $HOME/.rbenv/versions/2.4.0 ] as deploy@192.168.1.3
+ DEBUG [03ea06b4] Command: [ -d $HOME/.rbenv/versions/2.4.0 ]
+ DEBUG [03ea06b4] Finished in 0.500 seconds with exit status 0 (successful).
+ DEBUG [ffde1a4c] Running /usr/bin/env which passenger as deploy@192.168.1.3
+ DEBUG [ffde1a4c] Command: /usr/bin/env which passenger
+ DEBUG [ffde1a4c] 	/usr/bin/passenger
+ DEBUG [ffde1a4c] Finished in 0.177 seconds with exit status 0 (successful).
+  INFO [351fc0e5] Running /usr/bin/env mkdir -p /tmp as deploy@192.168.1.3
+ DEBUG [351fc0e5] Command: ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.4.0" ; /usr/bin/env mkdir -p /tmp )
+  INFO [351fc0e5] Finished in 0.009 seconds with exit status 0 (successful).
+ DEBUG Uploading /tmp/git-ssh-myapp-production-will.sh 0.0%
+  INFO Uploading /tmp/git-ssh-myapp-production-will.sh 100.0%
+  INFO [902f1ff0] Running /usr/bin/env chmod 700 /tmp/git-ssh-myapp-production-will.sh as deploy@192.168.1.3
+ DEBUG [902f1ff0] Command: ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.4.0" ; /usr/bin/env chmod 700 /tmp/git-ssh-myapp-production-will.sh )
+  INFO [902f1ff0] Finished in 0.010 seconds with exit status 0 (successful).
+  INFO [3416f340] Running /usr/bin/env git ls-remote git@github.com/willcook4/railsDeployTest HEAD as deploy@192.168.1.3
+ DEBUG [3416f340] Command: ( export RBENV_ROOT="$HOME/.rbenv" RBENV_VERSION="2.4.0" GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-myapp-production-will.sh" ; /usr/bin/env git ls-remote git@github.com/willcook4/railsDeployTest HEAD )
+ DEBUG [3416f340] 	fatal: 'git@github.com/willcook4/railsDeployTest' does not appear to be a git repository
+ DEBUG [3416f340] 	fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
